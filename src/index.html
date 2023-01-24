@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Multi-step form</title>
+    <link href="/dist/output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="w-screen h-screen bg-mangolia flex items-center justify-center">
+      <div
+        class="bg-transparent md:bg-customWhite w-[90%] h-screen md:w-[55%] md:min-h-[400px] md:max-h-[500px] md:rounded-xl shadow-md flex flex-col md:flex-row items-center justify-start md:p-2 relative"
+      >
+        <!-- Sidebar -->
+        <div
+          class="h-3/12 w-screen md:h-full md:w-3/12 md:rounded-lg overflow-hidden relative"
+        >
+          <!-- Desktop -->
+          <img
+            class="h-[100%] object-cover hidden md:block -z-10"
+            src="../assets/images/bg-sidebar-desktop.svg"
+            alt="sidebar_img"
+          />
+          <!-- Mobile Screen -->
+          <img
+            class="w-[100%] object-cover md:hidden -z-10"
+            src="../assets/images/bg-sidebar-mobile.svg"
+            alt="sidebar_img"
+          />
+
+          <!-- Progress Step divs -->
+          <div
+            class="absolute top-0 w-full h-full p-2 mx-auto flex items-start mt-4 justify-center md:flex-col md:items-start md:justify-start md:space-y-4"
+          >
+            <!-- Step 1 -->
+            <div class="form_1 flex space-x-2 ml-4 md:mt-5">
+              <div
+                id="step-1"
+                class="text-marineBlue bg-pastelBlue p-3 border border-1 border-pastelBlue rounded-full w-5 h-5 flex items-center justify-center"
+              >
+                <span class="text-xs">1</span>
+              </div>
+              <div
+                class="hidden md:flex flex-col items-start justify-center text-customWhite"
+              >
+                <p class="text-xs tracking-tighter text-coolGray">STEP 1</p>
+                <p class="text-xs tracking-tighter">YOUR INFO</p>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="form_2 flex space-x-2 ml-4">
+              <div
+                id="step-2"
+                class="text-customWhite p-3 border border-1 rounded-full w-5 h-5 flex items-center justify-center"
+              >
+                <span class="text-xs">2</span>
+              </div>
+              <div
+                class="hidden md:flex flex-col items-start justify-center text-customWhite"
+              >
+                <p class="text-xs tracking-tighter text-coolGray">STEP 2</p>
+                <p class="text-xs tracking-tighter">SELECT PLAN</p>
+              </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="form_3 flex space-x-2 ml-4">
+              <div
+                id="step-3"
+                class="text-customWhite p-3 border border-1 rounded-full w-5 h-5 flex items-center justify-center"
+              >
+                <span class="text-xs">3</span>
+              </div>
+              <div
+                class="hidden md:flex flex-col items-start justify-center text-customWhite"
+              >
+                <p class="text-xs tracking-tighter text-coolGray">STEP 3</p>
+                <p class="text-xs tracking-tighter">ADD-ONS</p>
+              </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="form_4 flex space-x-2 ml-4">
+              <div
+                id="step-4"
+                class="text-customWhite p-3 border border-1 rounded-full w-5 h-5 flex items-center justify-center"
+              >
+                <span class="text-xs">4</span>
+              </div>
+              <div
+                class="hidden md:flex flex-col items-start justify-center text-customWhite"
+              >
+                <p class="text-xs tracking-tighter text-coolGray">STEP 4</p>
+                <p class="text-xs tracking-tighter">SUMMARY</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Main Div -->
+        <div
+          class="absolute top-[13%] h-[80%] w-full md:relative md:top-0 md:h-full md:w-9/12 flex flex-col md:p-1 items-center justify-start rounded-lg"
+        >
+          <!-- Form 1 Section -->
+          <section
+            id="form1"
+            class="w-full h-[80%] bg-customWhite rounded-lg px-10 pt-4"
+          >
+            <!-- Section Heading -->
+            <div class="mt-6">
+              <h1 class="text-2xl font-semibold font-sans">Personal Info</h1>
+              <p class="font-sans text-xs text-coolGray tracking-wider">
+                Please provide your name, email address and phone number.
+              </p>
+            </div>
+            <!-- Form 1 -->
+            <form
+              class="w-full mt-3 flex flex-col items-start justify-evenly space-y-1"
+            >
+              <div
+                class="w-full flex flex-col justify-center items-start space-y-1"
+              >
+                <label
+                  for="name"
+                  class="relative w-full font-sans text-xs font-semibold"
+                  >Name
+                  <span
+                    id="name-error"
+                    class="hidden absolute top-0 right-1 font-sans text-strawberryRed"
+                    >This field is required</span
+                  >
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="e.g. Stephen King"
+                  class="border w-full p-1 rounded-md border-lightGray border-1 placeholder:text-xs placeholder:px-1 focus:border-none focus:outline-pastelBlue"
+                  required
+                />
+              </div>
+
+              <div
+                class="w-full flex flex-col justify-center items-start space-y-1"
+              >
+                <label
+                  for="email"
+                  class="relative w-full font-sans text-xs font-semibold"
+                  >Email Address
+                  <span
+                    id="email-error"
+                    class="hidden absolute top-0 right-1 font-sans text-strawberryRed"
+                    >This field is required</span
+                  >
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="e.g. stephenking@lorem.com"
+                  class="border w-full p-1 rounded-md border-lightGray border-1 placeholder:text-xs placeholder:px-1 focus:border-none focus:outline-pastelBlue"
+                  required
+                />
+              </div>
+
+              <div
+                class="w-full flex flex-col justify-center items-start space-y-1"
+              >
+                <label
+                  for="phone"
+                  class="relative w-full font-sans text-xs font-semibold"
+                  >Pnone Number
+                  <span
+                    id="phone-error"
+                    class="hidden absolute top-0 right-1 font-sans text-strawberryRed"
+                    >This field is required</span
+                  >
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  placeholder="e.g. +1 234 567 890"
+                  class="border w-full p-1 rounded-md border-lightGray border-1 placeholder:text-xs placeholder:px-1 focus:border-none focus:outline-pastelBlue"
+                  required
+                />
+              </div>
+            </form>
+            <!-- Form 2 -->
+          </section>
+
+          <!-- Form 2 Section  -->
+          <section
+            id="form2"
+            class="hidden w-full h-[80%] bg-customWhite rounded-lg px-10 pt-4"
+          >
+            <!-- Section 2 Heading -->
+            <div class="mt-6">
+              <h1 class="text-2xl font-semibold font-sans">Select Your Plan</h1>
+              <p class="font-sans text-xs text-coolGray tracking-wider">
+                You have the option of monthly or yearly billing.
+              </p>
+            </div>
+            <!-- Cards Section -->
+            <div
+              class="mt-3 w-full flex flex-col items-center justify-center space-y-2 md:flex-row md:space-x-2"
+            >
+              <!-- Arcade -->
+              <div
+                id="arcade-card"
+                class="flex md:flex-col items-center justify-start md:items-start md:justify-center space-x-2 md:space-x-0 md:space-y-2 p-2 md:py-3 border border-purplishBlue bg-mangolia rounded-lg w-full cursor-pointer hover:border-purplishBlue hover:bg-alabaster"
+                onclick="updateSelectedPlan('Arcade')"
+              >
+                <img
+                  src="../assets/images/icon-arcade.svg"
+                  alt="arcade"
+                  class="h-10 w-10 rounded-full md:mb-4"
+                />
+                <div class="flex flex-col items-center font-sans text-left">
+                  <h3 class="text-sm font-sans">Arcade</h3>
+                  <p class="font-sans text-xs text-coolGray">
+                    $<span id="arcade" class="charges">9</span>/<span
+                      class="term"
+                      >mo</span
+                    >
+                  </p>
+                  <p
+                    class="offer mt-1 text-xs tracking-tighter font-sans text-marineBlue opacity-0 transition-all duration-500 ease-linear"
+                  >
+                    2 months free
+                  </p>
+                </div>
+              </div>
+
+              <!-- Advanced -->
+              <div
+                id="adv-card"
+                class="flex md:flex-col items-center justify-start md:items-start md:justify-center space-x-2 md:space-x-0 md:space-y-2 p-2 md:py-3 border border-lightGray rounded-lg w-full cursor-pointer hover:border-purplishBlue hover:bg-alabaster"
+                onclick="updateSelectedPlan('Advanced')"
+              >
+                <img
+                  src="../assets/images/icon-advanced.svg"
+                  alt="arcade"
+                  class="h-10 w-10 rounded-full md:mb-4"
+                />
+                <div class="flex flex-col items-center font-sans text-left">
+                  <h3 class="text-sm font-sans">Advanced</h3>
+                  <p class="font-sans text-xs text-coolGray">
+                    $<span id="advanced" class="charges">12</span>/<span
+                      class="term"
+                      >mo</span
+                    >
+                  </p>
+
+                  <p
+                    class="offer mt-1 text-xs tracking-tighter font-sans text-marineBlue opacity-0 transition-all duration-500 ease-linear"
+                  >
+                    2 months free
+                  </p>
+                </div>
+              </div>
+
+              <!-- Pro -->
+              <div
+                id="pro-card"
+                class="flex md:flex-col items-center justify-start md:items-start md:justify-center space-x-2 md:space-x-0 md:space-y-2 p-2 md:py-3 border border-lightGray rounded-lg w-full cursor-pointer hover:border-purplishBlue hover:bg-alabaster"
+                onclick="updateSelectedPlan('Pro')"
+              >
+                <img
+                  src="../assets/images/icon-pro.svg"
+                  alt="arcade"
+                  class="h-10 w-10 rounded-full md:mb-4"
+                />
+                <div class="flex flex-col items-center font-sans text-left">
+                  <h3 class="text-sm font-sans">Pro</h3>
+                  <p class="font-sans text-xs text-coolGray">
+                    $<span id="pro" class="charges">15</span>/<span class="term"
+                      >mo</span
+                    >
+                  </p>
+                  <p
+                    class="offer mt-1 text-xs tracking-tighter font-sans text-marineBlue opacity-0 transition-all duration-500 ease-linear"
+                  >
+                    2 months free
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Toggle Section -->
+            <div
+              class="mt-5 w-full p-2 h-auto bg-mangolia flex items-center justify-center"
+            >
+              <div class="flex items-center justify-center space-x-3">
+                <span class="text-xs text-marineBlue font-semibold font-sans">
+                  Monthly
+                </span>
+                <div class="w-14">
+                  <label for="check" class="relative cursor-pointer">
+                    <input type="checkbox" name="check" id="checkbox" />
+                    <span
+                      id="toggler"
+                      class="absolute left-0 top-0 bg-marineBlue w-12 h-5 rounded-full"
+                    >
+                      <span class="relative w-full h-full">
+                        <span
+                          id="slider"
+                          class="absolute w-3 h-3 bg-customWhite top-1 left-1 bottom-1 right-1 rounded-full transition-all ease-linear duration-500"
+                        ></span>
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <span
+                  class="text-xs text-right text-marineBlue font-semibold font-sans"
+                >
+                  Yearly
+                </span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Form 3 Section -->
+          <section
+            id="form3"
+            class="hidden w-full h-[80%] bg-customWhite rounded-lg px-10 pt-4"
+          >
+            <!-- Section 3 Heading -->
+            <div class="mt-6">
+              <h1 class="text-2xl font-semibold font-sans">Pick add-ons</h1>
+              <p class="font-sans text-xs text-coolGray tracking-wider">
+                Add-ons help enhance your gaming experience.
+              </p>
+            </div>
+            <!-- Section 3 Cards -->
+            <div
+              class="mt-6 w-full flex flex-col gap-3 items-center justify-start"
+            >
+              <!-- Card 1 -->
+              <div
+                class="w-full flex items-center justify-start border border-lightGray rounded-lg p-2 gap-4 cursor-pointer"
+                id="online-service"
+              >
+                <input type="checkbox" class="pointer-events-none" />
+                <div
+                  class="flex flex-col items-start justify-center w-3/4 gap-1"
+                >
+                  <h6
+                    class="text-xs text-left text-marineBlue font-sans font-semibold"
+                  >
+                    Online service
+                  </h6>
+                  <p class="text-[10px] text-coolGray">
+                    Access to multiplayer games.
+                  </p>
+                </div>
+                <span class="ml-auto text-xs text-purplishBlue"
+                  >+$<span id="online-price" class="charges">1</span>/<span
+                    class="term"
+                    >mo</span
+                  ></span
+                >
+              </div>
+              <!-- Card 2 -->
+              <div
+                class="w-full flex items-center justify-start border border-lightGray rounded-lg p-2 gap-4 cursor-pointer"
+                id="larger-storage"
+              >
+                <input type="checkbox" class="pointer-events-none" />
+                <div
+                  class="flex flex-col items-start justify-center w-3/4 gap-1"
+                >
+                  <h6
+                    class="text-xs text-left text-marineBlue font-sans font-semibold"
+                  >
+                    Larger storage
+                  </h6>
+                  <p class="text-[10px] text-coolGray">
+                    Extra 1TB of cloud storage.
+                  </p>
+                </div>
+                <span class="ml-auto text-xs text-purplishBlue"
+                  >+$<span id="storage-price" class="charges">2</span>/<span
+                    class="term"
+                    >mo</span
+                  ></span
+                >
+              </div>
+              <!-- Card 3 -->
+              <div
+                class="w-full flex items-center justify-start border border-lightGray rounded-lg p-2 gap-4 cursor-pointer"
+                id="custom-profile"
+              >
+                <input type="checkbox" class="pointer-events-none" />
+                <div
+                  class="flex flex-col items-start justify-center w-3/4 gap-1"
+                >
+                  <h6
+                    class="text-xs text-left text-marineBlue font-sans font-semibold"
+                  >
+                    Customizable profile
+                  </h6>
+                  <p class="text-[10px] text-coolGray">
+                    Custom theme on your profile.
+                  </p>
+                </div>
+                <span class="ml-auto text-xs text-purplishBlue"
+                  >+$<span id="profile-price" class="charges">2</span>/<span
+                    class="term"
+                    >mo</span
+                  ></span
+                >
+              </div>
+            </div>
+          </section>
+
+          <!-- Form 4 Section -->
+          <section
+            id="form4"
+            class="hidden w-full h-auto bg-customWhite rounded-lg px-10 pt-4"
+          >
+            <!-- Section 4 Heading -->
+            <div class="mt-6">
+              <h1 class="text-2xl font-semibold font-sans">Finishing up</h1>
+              <p class="font-sans text-sm text-coolGray tracking-wider">
+                Double check everything looks OK before confirming.
+              </p>
+            </div>
+
+            <!-- Section 4 Cart -->
+            <div
+              class="mt-6 w-full h-auto rounded-lg bg-alabaster py-3 flex flex-col items-center justify-center px-2"
+            >
+              <!-- Heading -->
+              <div
+                class="w-full pt-3 pb-2 px-1 flex items-center justify-between border-b border-lightGray"
+              >
+                <div class="flex flex-col justify-start items-start">
+                  <p
+                    class="text-xs font-sans text-marineBlue font-semibold tracking-wide"
+                  >
+                    <span id="finalPlan">Arcade</span> (<span id="billingPeriod"
+                      >monthly</span
+                    >)
+                  </p>
+                  <a
+                    href="#"
+                    class="text-xs text-lightGray font-semibold underline"
+                    onclick="changePlan()"
+                    >Change</a
+                  >
+                </div>
+                <div
+                  class="flex items-center justify-end text-xs font-semibold text-marineBlue tracking-wide"
+                >
+                  $<span id="final-charge" class="charges">9</span>/<span
+                    class="term"
+                    >mo</span
+                  >
+                </div>
+              </div>
+
+              <!-- List Items -->
+              <div class="w-full flex flex-col justify-start">
+                <!-- Item 1 -->
+                <div
+                  id="final-online"
+                  class="hidden justify-between items-center font-sans py-3"
+                >
+                  <p class="text-coolGray text-xs tracking-wide">
+                    Online service
+                  </p>
+                  <div>
+                    <p class="text-marineBlue text-xs">
+                      +$<span class="charges">1</span>/<span class="term"
+                        >mo</span
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div
+                  id="final-storage"
+                  class="hidden justify-between items-center font-sans py-3"
+                >
+                  <p class="text-coolGray text-xs tracking-wide">
+                    Larger storage
+                  </p>
+                  <div>
+                    <p class="text-marineBlue text-xs">
+                      +$<span class="charges">2</span>/<span class="term"
+                        >mo</span
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div
+                  id="final-profile"
+                  class="hidden justify-between items-centerfont-sans py-3"
+                >
+                  <p class="text-coolGray text-xs tracking-wide">
+                    Customizable profile
+                  </p>
+                  <div>
+                    <p class="text-marineBlue text-xs">
+                      +$<span class="charges">2</span>/<span class="term"
+                        >mo</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cart Total -->
+            <div
+              class="w-full bg-customWhite flex items-center justify-between p-2 mt-3 mb-3"
+            >
+              <p class="text-coolGray text-sm">
+                Total (per <span id="total-plan">month</span>)
+              </p>
+              <p class="text-purplishBlue text-sm font-bold">
+                +$<span id="total-price" class="charges">9</span>/<span
+                  class="term"
+                  >mo</span
+                >
+              </p>
+            </div>
+          </section>
+
+          <!-- Final Section -->
+          <section
+            id="form5"
+            class="hidden relative w-full h-full bg-customWhite rounded-lg px-10 pt-4 flex-col items-center justify-center"
+          >
+            <img src="../assets//images/icon-thank-you.svg" alt="thank you" />
+            <h2 class="pt-5 text-2xl font-sans font-bold text-marineBlue">
+              Thank you!
+            </h2>
+            <p class="pt-2 text-center text-coolGray text-sm tracking-tighter">
+              Thanks for confirming your subscription! We hope you have fun
+              using our platform. If you ever need support, please feel free to
+              email us at support@loremgaming.com.
+            </p>
+
+            <!-- Attribution -->
+
+            <div
+              class="attribution absolute bottom-0 text-sm font-sans text-coolGray font-semibold tracking-tighter"
+            >
+              Challenge by
+              <a
+                href="https://www.frontendmentor.io?ref=challenge"
+                target="_blank"
+                class="text-purplishBlue"
+                >Frontend Mentor</a
+              >. Coded by
+              <a href="https://github.com/its7rishi" class="text-strawberryRed"
+                >Saptarshi Majumdar</a
+              >.
+            </div>
+          </section>
+
+          <!-- Buttons Section -->
+          <section
+            class="w-screen mt-6 py-4 px-10 md:px-0 flex items-center justify-between md:w-[85%] h-[20%] bg-customWhite"
+          >
+            <div class="flex items-center justify-start">
+              <button
+                id="goBack"
+                class="hidden text-xs text-marineBlue font-semibold font-sans"
+                onclick="changeForm('reverse')"
+              >
+                Go Back
+              </button>
+            </div>
+            <div class="flex items-center justify-end">
+              <button
+                id="confirm"
+                class="hidden py-2 px-4 bg-purplishBlue text-customWhite font-sans text-xs rounded-md"
+                onclick="changeForm('forward')"
+              >
+                Confirm
+              </button>
+              <button
+                type="button"
+                id="nxt"
+                class="py-2 px-4 bg-marineBlue text-customWhite font-sans text-xs rounded-md"
+                onclick="validateuserInfo()"
+              >
+                Next Step
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <script src="./scripts.js"></script>
+  </body>
+</html>
