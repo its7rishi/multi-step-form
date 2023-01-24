@@ -18,7 +18,7 @@
   /* 2 */
   border-style: solid;
   /* 2 */
-  border-color: currentColor;
+  border-color: #e5e7eb;
   /* 2 */
 }
 
@@ -807,6 +807,10 @@ video {
 .bg-mangolia{
   --tw-bg-opacity: 1;
   background-color: hsl(217 100% 97% / var(--tw-bg-opacity));
+}
+
+.bg-transparent{
+  background-color: transparent;
 }
 
 .bg-pastelBlue{
