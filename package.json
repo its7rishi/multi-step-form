@@ -5,10 +5,11 @@
   "main": "scripts.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css",
+    "watch": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
   },
   "keywords": [],
-  "author": "",
+  "author": "Saptarshi majumdar",
   "license": "ISC",
   "devDependencies": {
     "tailwindcss": "^3.2.4"
