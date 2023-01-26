@@ -226,13 +226,14 @@ let finalCharge = document.getElementById('final-charge') // for final form
 let arcadeCard = document.getElementById('arcade-card')
 let advCard = document.getElementById('adv-card')
 let proCard = document.getElementById('pro-card')
-let planPrice = parseInt(arcade.innerText)
+// let planPrice = parseInt(arcade.innerText)
+let planPrice = 9
 
 function updateSelectedPlan(plan) {
   selectedPlan = plan
 
   if (selectedPlan === 'Arcade') {
-    planPrice = parseInt(arcade.innerText)
+    planPrice = 9
     finalCharge.innerText = planPrice
     updateTotalPrice()
     // Arcade Card
@@ -250,7 +251,7 @@ function updateSelectedPlan(plan) {
     proCard.classList.add('border-lightGray')
     proCard.classList.remove('bg-mangolia')
   } else if (selectedPlan === 'Advanced') {
-    planPrice = parseInt(advanced.innerText)
+    planPrice = 12
     finalCharge.innerText = planPrice
     updateTotalPrice()
     // Arcade Card
@@ -268,7 +269,7 @@ function updateSelectedPlan(plan) {
     proCard.classList.add('border-lightGray')
     proCard.classList.remove('bg-mangolia')
   } else if (selectedPlan === 'Pro') {
-    planPrice = parseInt(pro.innerText)
+    planPrice = 15
     finalCharge.innerText = planPrice
     updateTotalPrice()
     // Arcade Card
@@ -295,9 +296,9 @@ let onlineService = document.querySelector('#online-service')
 let largerStorage = document.querySelector('#larger-storage')
 let customProfile = document.querySelector('#custom-profile')
 let addOnPrice = 0
-let onlinePrice = document.getElementById('online-price').innerText
-let storagePrice = document.getElementById('storage-price').innerText
-let profilePrice = document.getElementById('profile-price').innerText
+let onlinePrice = parseInt(document.getElementById('online-price').innerText)
+let storagePrice = parseInt(document.getElementById('storage-price').innerText)
+let profilePrice = parseInt(document.getElementById('profile-price').innerText)
 
 onlineService.addEventListener('click', (event) => {
   let isChecked = event.currentTarget.childNodes[1].checked
@@ -354,7 +355,6 @@ customProfile.addEventListener('click', (event) => {
     finalProfile.classList.add('flex')
     // Pricing
     addOnPrice += parseInt(profilePrice)
-    // updateTotalPrice()
   } else {
     event.currentTarget.childNodes[1].checked = false
     event.currentTarget.classList.add('border-lightGray')
@@ -362,7 +362,6 @@ customProfile.addEventListener('click', (event) => {
     finalProfile.classList.remove('flex')
     finalProfile.classList.add('hidden')
     addOnPrice -= parseInt(profilePrice)
-    // updateTotalPrice()
   }
   updateTotalPrice()
 })
@@ -382,9 +381,12 @@ function changePlan() {
 
 function updateTotalPrice() {
   let total = 0
+  total = parseInt(planPrice) + parseInt(addOnPrice)
   if (plan === 'yearly') {
-    total = parseInt(planPrice) * 10 + parseInt(addOnPrice) * 10
+    finalCharge.innerText = planPrice * 10
+    total = total * 10
   } else {
+    finalCharge.innerText = planPrice
     total = planPrice + addOnPrice
   }
 
